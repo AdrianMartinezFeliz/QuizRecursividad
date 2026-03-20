@@ -17,51 +17,7 @@ public class Main {
         return factorialCola(n - 1, n * acumulador);
     }
 
-    // Ejercicio 3 - Inciso 17
-    public static void hanoiIterativo(int n, char origen, char auxiliar, char destino) {
-        int maxSize = n * 3 + 10;
-        int[] pilaDiscos = new int[maxSize];
-        char[] pilaOrigen = new char[maxSize];
-        char[] pilaAuxiliar = new char[maxSize];
-        char[] pilaDestino = new char[maxSize];
-        int tope = 0;
 
-        pilaDiscos[tope] = n;
-        pilaOrigen[tope] = origen;
-        pilaAuxiliar[tope] = auxiliar;
-        pilaDestino[tope] = destino;
-        tope++;
-
-        while (tope > 0) {
-            tope--;
-            int discos = pilaDiscos[tope];
-            char org = pilaOrigen[tope];
-            char aux = pilaAuxiliar[tope];
-            char dst = pilaDestino[tope];
-
-            if (discos == 1) {
-                System.out.println(org + " -> " + dst);
-            } else {
-                pilaDiscos[tope] = discos - 1;
-                pilaOrigen[tope] = aux;
-                pilaAuxiliar[tope] = org;
-                pilaDestino[tope] = dst;
-                tope++;
-
-                pilaDiscos[tope] = 1;
-                pilaOrigen[tope] = org;
-                pilaAuxiliar[tope] = aux;
-                pilaDestino[tope] = dst;
-                tope++;
-
-                pilaDiscos[tope] = discos - 1;
-                pilaOrigen[tope] = org;
-                pilaAuxiliar[tope] = dst;
-                pilaDestino[tope] = aux;
-                tope++;
-            }
-        }
-    }
 
     // Ejercicio 3 - Inciso 18
     public static long contarHanoi(int n) {
